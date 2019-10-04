@@ -114,7 +114,7 @@ ykapp.controller('subjectController', function($scope, $http) {
     
     $http.get(ip+'/topic/getTopicsByDomainName?domainName='+getCookie("NowClass")).success(function(data){
         response = data["data"]
-
+        $scope.topicNumber = response.length;
         $scope.Topics = response.slice(0,7);
 
         //console.log($("#rightDiv").height());
