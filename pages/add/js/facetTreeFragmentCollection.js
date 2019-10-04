@@ -431,7 +431,7 @@ function showFragmentRatio(num){
     // var text_ratio=text/(text+picture)*100;
     // var piture_ratio=picture/(text+picture)*100;
     //显示碎片
-    document.getElementById("textCount").innerHTML=num; 
+    document.getElementById("textCount").innerHTML=num ? num : '正在加载...'; 
     // document.getElementById('textRatio').style.width=""+text_ratio+"%";
     // document.getElementById("pictureCount").innerHTML=picture; 
     // document.getElementById('pictureRatio').style.width=""+piture_ratio+"%";
