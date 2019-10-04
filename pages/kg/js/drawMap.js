@@ -94,6 +94,7 @@ function init() {
         var myChart = echarts.init(dom);
         var option = null;
         graph = echarts.dataTool.gexf.parse(xml);
+        $('#relationNumber').text(`${graph.links.length} `);
         var communitySize = [];
         // 获取社团数量
         communityCount = 0;
