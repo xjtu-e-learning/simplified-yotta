@@ -380,7 +380,97 @@ app.controller('myCon', function ($scope, $http, $sce) {
         // window.onresize = function () {
         //   chart.resize();
         // }
+        // 加载模态统计
+        var chart2 = echarts.init(document.getElementById('distributedPic'));
+        var data2 = [{
+            "name": "文本",
+            "value": 10022
+        },
+        {
+            "name": "图片",
+            "value": 3134
+        },
+        {
+            "name": "视频",
+            "value": 1255
+        }
+        ];
+        option2 = {
+            backgroundColor: '#fff',
+            title: {
+                text: "碎片模态",
+                // subtext: '主题: ' + $scope.tops[0].topicName,
+                x: 'center',
+                y: 'center',
+                textStyle: {
+                    color: '#000',
+                    fontWeight: 'normal',
+                    fontSize: 16
+                },
+                subtextStyle: {
+                    color: '#000',
+                    fontWeight: 'normal',
+                    fontSize: 12
+                }
+            },
+            tooltip: {
+                show: false,
+                trigger: 'item',
+                formatter: "{a} <br/>{b}: {c} ({d}%)",
+            },
+            legend: {
+                orient: 'horizontal',
+                // bottom: '0%',
+                x: 'center',
+                y: 'top',
+                data: ["文本", "图片", "视频"],
+            },
+            toolbox: {
+                show: true,
+                orient: 'vertical',
+                x: 'right',
+                y: 'center',
+                feature: {
+                    dataZoom: {
+                        yAxisIndex: 'none'
+                    },
+                    dataView: {
+                        readOnly: false
+                    },
+                    magicType: {
+                        type: ['line', 'bar']
+                    },
+                    restore: {},
+                    saveAsImage: {}
+                }
+            },
+            series: [{
+                type: 'pie',
+                selectedMode: 'single',
+                radius: ['25%', '80%'],
+                // color: ['#f5222d', '#fa541c', '#fa8c16', '#faad14', '#fadb14', '#a0d911', '#52c41a', '#13c2c2', '#1890ff', '#2f54eb', '#722ed1', '#eb2f96', '#ffa39e', '#ffbb96', '#ffd591', '#ffe58f'],
 
+                label: {
+                    normal: {
+                        position: 'inner',
+                        formatter: '{c} ({d}%)',
+
+                        textStyle: {
+                            color: '#fff',
+                            fontWeight: 'bold',
+                            fontSize: 12
+                        }
+                    }
+                },
+                labelLine: {
+                    normal: {
+                        show: false
+                    }
+                },
+                data: data2
+            }]
+        };
+        chart2.setOption(option2);
         // 加载数据源统计
         var chart1 = echarts.init(document.getElementById('fragmentPic'));
         var results;
@@ -403,70 +493,70 @@ app.controller('myCon', function ($scope, $http, $sce) {
             }
         });
         // var data = results.assembleDistributionGroupBySources;
-        var data = [{
-                "name": "中文维基",
-                "value": 491
-            },
-            {
-                "name": "知乎",
-                "value": 969
-            },
-            {
-                "name": "百度知道",
-                "value": 954
-            },
-            {
-                "name": "csdn",
-                "value": 851
-            },
-            {
-                "name": "人工",
-                "value": 5467,
-            },
-            {
-                "name": "Stackoverflow",
-                "value": 492
-            },
-            {
-                "name": "英文维基",
-                "value": 558
-            },
-            {
-                "name": "Yahoo",
-                "value": 437
-            },
-            {
-                "name": "今日头条",
-                "value": 740
-            },
-            {
-                "name": "其他",
-                "value": 822
-            },
-            {
-                "name": "百度百科",
-                "value": 346
-            },
-            {
-                "name": "搜狗百科",
-                "value": 282
-            },
-            {
-                "name": "博客园",
-                "value": 401
-            },
-            {
-                "name": "github",
-                "value": 361
-            },
-            {
-                "name": "书籍",
-                "value": 581
-            },
-            {
-                "name": "百度文库",
-                "value": 659
-            }
+        var data1 = [{
+            "name": "中文维基",
+            "value": 491
+        },
+        {
+            "name": "知乎",
+            "value": 969
+        },
+        {
+            "name": "百度知道",
+            "value": 954
+        },
+        {
+            "name": "csdn",
+            "value": 851
+        },
+        {
+            "name": "人工",
+            "value": 5467,
+        },
+        {
+            "name": "Stackoverflow",
+            "value": 492
+        },
+        {
+            "name": "英文维基",
+            "value": 558
+        },
+        {
+            "name": "Yahoo",
+            "value": 437
+        },
+        {
+            "name": "今日头条",
+            "value": 740
+        },
+        {
+            "name": "其他",
+            "value": 822
+        },
+        {
+            "name": "百度百科",
+            "value": 346
+        },
+        {
+            "name": "搜狗百科",
+            "value": 282
+        },
+        {
+            "name": "博客园",
+            "value": 401
+        },
+        {
+            "name": "github",
+            "value": 361
+        },
+        {
+            "name": "书籍",
+            "value": 581
+        },
+        {
+            "name": "百度文库",
+            "value": 659
+        }
         ];
         option1 = {
             backgroundColor: '#fff',
@@ -496,7 +586,7 @@ app.controller('myCon', function ($scope, $http, $sce) {
                 // bottom: '0%',
                 x: 'center',
                 y: 'top',
-                data: ["中文维基","知乎","百度知道","csdn","人工","Stackoverflow","英文维基","Yahoo","今日头条","其他","百度百科","搜狗百科","博客园","github","书籍","百度文库"],
+                data: ["中文维基", "知乎", "百度知道", "csdn", "人工", "Stackoverflow", "英文维基", "Yahoo", "今日头条", "其他", "百度百科", "搜狗百科", "博客园", "github", "书籍", "百度文库"],
             },
             toolbox: {
                 show: true,
@@ -540,13 +630,13 @@ app.controller('myCon', function ($scope, $http, $sce) {
                         show: false
                     }
                 },
-                data: data
+                data: data1
             }]
         };
         chart1.setOption(option1);
 
-        // charts.push(chart);  
-        charts.push(chart1);
+        charts.push(chart1);  
+        charts.push(chart2);
         $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
             for (var i = 1; i < charts.length; i++) {
                 charts[i].resize();
