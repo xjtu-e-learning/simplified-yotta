@@ -15,7 +15,7 @@ app.controller('menu', function ($scope, $http) {
         setCookie("stepNumber", 1, "d900")
     }
     img.attr('width', "");
-    img.attr('src', 'dist/img/daohang.png');
+    img.attr('src', 'dist/img/daohang1.png');
     img.load(function () {
         // img.addClass('img-responsive')
         setImgArea()
@@ -111,11 +111,14 @@ function setImgArea() {
     var img = $("#ImgNavigation");
 
     var area1 = $('#area1');
-    area1.attr("coords", "" + 928 / 3193 * img.width() + "," + 537 / 1269 * img.height() + "," + 240 / 3193 * img.width());
+    // area1.attr("coords", "" + 928 / 3193 * img.width() + "," + 537 / 1269 * img.height() + "," + 240 / 3193 * img.width());
+    area1.attr("coords", "" + 432 / 1469 * img.width() + "," + 150 / 402 * img.height() + "," + 284 / 1469 * img.width());
     var area2 = $('#area2');
-    area2.attr("coords", "" + 1828 / 3193 * img.width() + "," + 510 / 1269 * img.height() + "," + 370 / 3193 * img.width());
+    // area2.attr("coords", "" + 1828 / 3193 * img.width() + "," + 510 / 1269 * img.height() + "," + 370 / 3193 * img.width());
+    area2.attr("coords", "" + 877 / 1469 * img.width() + "," + 146 / 402 * img.height() + "," + 270 / 1469 * img.width());
     var area3 = $('#area3');
-    area3.attr("coords", "" + 2850 / 3193 * img.width() + "," + 507 / 1269 * img.height() + "," + 398 / 3193 * img.width());
+    // area3.attr("coords", "" + 2850 / 3193 * img.width() + "," + 507 / 1269 * img.height() + "," + 398 / 3193 * img.width());
+    area3.attr("coords", "" + 1312 / 1469 * img.width() + "," + 145 / 402 * img.height() + "," + 280 / 1469 * img.width());
 }
 
 $(document).ready(function () {
