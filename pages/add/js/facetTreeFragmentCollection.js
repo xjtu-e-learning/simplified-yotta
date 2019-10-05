@@ -1,5 +1,5 @@
 //变量
-var SUBJECTNAME = '图形的运动';
+var SUBJECTNAME = '循环小数';
 
 
 //文本图片碎片栏滚动条设置
@@ -115,7 +115,7 @@ ykapp.controller('subjectController', function($scope, $http) {
     $http.get(ip+'/topic/getTopicsByDomainName?domainName='+getCookie("NowClass")).success(function(data){
         response = data["data"]
         $scope.topicNumber = response.length;
-        $scope.Topics = response.slice(0,7);
+        $scope.Topics = response.filter(x => x.topicId === 1053306 || x.topicId === 1053366).concat(response).slice(0,7);
 
         //console.log($("#rightDiv").height());
         //console.log($('.box-header').height());
@@ -126,7 +126,7 @@ ykapp.controller('subjectController', function($scope, $http) {
 
         // 每次选择一门新的课程时，展示这门新的课程的第一个主题的分面树
         // console.log(response[0].TermName);
-        SUBJECTNAME = response[0].topicName;
+        // SUBJECTNAME = response[0].topicName;
         // LoadBranch();
         $scope.clickTopic(SUBJECTNAME);
     });

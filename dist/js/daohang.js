@@ -1,11 +1,7 @@
-text_1 = '知识主题抽取算法利用主题名语法规则与拓扑特性从维基百科、百度百科等高质量数据源中抽取出具有多分面特性的领域术语作为知识主题。在这里我们基于课题1中碎片化文本的实体表示与语义相似度计算方法，实现了备选知识主题的识别与消歧，利用课题5中面向知识导航的概念抽取和语义理解方法筛选出用于构建教育知识图谱节点的知识主题。'
-text_0 = '为了缓解碎片化知识SOD三特性引发的问题，我们课题组提出了一种知识聚合新模式——“知识森林”，将多源、片面、无序的碎片化知识聚合成符合人类认知学习特点的森林结构。知识森林概念层次为“知识主题——主题分面树——知识森林”。'
-text_2 = '基于课题2中复杂海量领域知识的语义集成技术实现知识主题树的构建，对每个主题，抽取它的分面集合以及分面之间的层级关系构成树状结构称为分面树。'
-text_3 = '挖掘出知识主题间的因果、参考、对比等认知关系，为用户规划一条由认知关系组成的认知路径，实现导航学习。'
-text_4 = '根据主题从多个数据源，比如中文维基, 百度知道、LOD中采集知识碎片，通过应用课题2中碎片化数据的噪音清洗技术和课题3中基于信念传播的关联数据冲突消解方法对知识碎片去冗、去噪、冲突消解以及置信度评估实现量质转换，得到高质量的知识碎片数据集。'
-text_5 = '知识碎片装配算法将知识碎片装配问题转化为文本匹配问题，利用课题1的在线特征降维方法对多源海量数据碎片化知识进行建模，利用课题3的多模态碎片化知识分面融合方法，关联主题分面与文本知识碎片及图像知识碎片，实现碎片化知识的装配。'
-text_6 = '知识森林是“分面聚合+主题导航”的新型知识聚合模式。由实例化的主题分面树通过主题间认知关系联结而成，如同显示森林中树之间的路径。'
-text = [text_4, text_5, text_6];
+text_1 = '从维基百科，MOOC等12个开放教育资源抽取碎片知识，并通过混合表示学习算法将所有碎片知识映射到统一空间中。';
+text_2 = '采用我们自主研制的标签传播主题树生成算法，形成主题树的树干树枝，通过优化子集选择从碎片知识集中选择相关的碎片知识装配生成主题树。树叶表示碎片知识，树木表示多维度的主题知识。';
+text_3 = '采用自主创新的拓扑融合+模态互补的认知关系挖掘算法，识别主题树间的个语义关系，主题树通过语义关系融合生成知识森林，表示了课程的知识体系。';
+text = [text_1, text_2, text_3];
 
 
 var app = angular.module('myApp', []);
@@ -23,7 +19,7 @@ app.controller('menu', function ($scope, $http) {
     img.load(function () {
         // img.addClass('img-responsive')
         setImgArea()
-        display(0)
+        // display(0)
     })
 
     // 获取学科和课程数据
@@ -61,7 +57,7 @@ app.controller('menu', function ($scope, $http) {
 })
 function resetCookie() {
     setCookie("stepNumber", 1, "s900")
-    display(0)
+    // display(0)
     // console.log(getCookie("stepNumber"))
     // window.location.reload();
 }
@@ -95,13 +91,9 @@ function pageto(number) {
 
 function display(i) {
     // var i=getCookie("stepNumber");
-    setCookie("stepNumber", i, "d900")
-    $("#text").html(text[i - 1])
-    if (i == 0) {
-        $('#image').attr('src', "")
-        return
-    }
-    $('#image').attr('src', "dist/img/tishi/step" + i + ".png")
+    setCookie("stepNumber", i, "d900");
+    $('#textContainer').css('visibility', 'visible');
+    $("#text").html(text[i - 1]);
 }
 
 function imagehide(i) {
