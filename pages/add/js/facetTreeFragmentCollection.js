@@ -1,5 +1,5 @@
 //变量
-var SUBJECTNAME = '循环小数';
+var SUBJECTNAME = '企业Q';
 
 
 //文本图片碎片栏滚动条设置
@@ -166,8 +166,10 @@ function ObtainTrunk(subjectName){
         type: "POST",
         url: ip+"/topic/getCompleteTopicByNameAndDomainNameWithHasFragment",
         data: $.param( {
-            domainName:getCookie("NowClass"),
-            topicName:subjectName,
+            // domainName:getCookie("NowClass"),
+            domainName: '企业知识森林',
+            // topicName:SUBJECTNAME,
+            topicName: '企业Q',
             hasFragment:false
         }),
         headers:{'Content-Type': 'application/x-www-form-urlencoded'},
@@ -291,8 +293,10 @@ function LoadBranch(){
         type: "POST",
         url: ip+"/topic/getCompleteTopicByNameAndDomainNameWithHasFragment",
         data: $.param( {
-            domainName:getCookie("NowClass"),
-            topicName:SUBJECTNAME,
+            // domainName:getCookie("NowClass"),
+            domainName: '企业知识森林',
+            // topicName:SUBJECTNAME,
+            topicName: '企业Q',
             hasFragment:false
         }),
         headers:{'Content-Type': 'application/x-www-form-urlencoded'},
@@ -377,8 +381,10 @@ function DisplayAllFragment(){
         type: "POST",
         url: ip+"/topic/getCompleteTopicByNameAndDomainNameWithHasFragment",
         data: $.param( {
-            domainName:getCookie("NowClass"),
-            topicName:SUBJECTNAME,
+            // domainName:getCookie("NowClass"),
+            domainName: '企业知识森林',
+            // topicName:SUBJECTNAME,
+            topicName: '企业Q',
             hasFragment:true
         }),
         headers:{'Content-Type': 'application/x-www-form-urlencoded'},

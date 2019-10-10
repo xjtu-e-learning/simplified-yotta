@@ -27,8 +27,8 @@ $(document).ready(function(){
     // 设置x轴初始显示的主题个数为10个
     var topicLength = xAxisData.length;
     var end = 100; // 显示百分之end的x轴数据
-    if (topicLength > 10) {
-        end = (10 / topicLength) * 100;
+    if (topicLength > 7) {
+        end = (7 / topicLength) * 100;
     }
     // 得到数据的和
     var dataTotal = function() {

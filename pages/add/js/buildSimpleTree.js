@@ -29,11 +29,11 @@ var trunk_text_size = '16px';
 var trunk_text_width ='2px';
 var text_seed_x = 13;
 var text_seed_y = 18;
-var color_trunk = '#330000';
-var color_branch = '#330000';
-var color_twig = '#330000'
-var color_hilight_twig = 'brown';
-var color_leaf = 'green';
+var color_trunk = '#8FDEF8';
+var color_branch = '#8FDEF8';
+var color_twig = '#8FDEF8'
+var color_hilight_twig = '#8FDEF8';
+var color_leaf = '#71E301';
 var color_hilight_leaf = 'yellow';
 //树干宽度
 var width_trunk = 7;
@@ -386,7 +386,8 @@ function draw_tree(tree, seed, svgobj, multiple){
 		.append('textPath')
 			.style('font-size', function (d) {return (d.type == 'twig')? ('12px'):('15px')})
 		.attr('xlink:href',function(d) {return d.textpath;})
-		.text(function(d){return d.name;});
+		.text(function(d){return d.name;})
+		.style('fill', '#ffffff');
 	}	
 	//根节点
 	g.append('text')		   
@@ -394,7 +395,8 @@ function draw_tree(tree, seed, svgobj, multiple){
 	   .attr('x',seed.x- text_seed_x *seed.name.length/2)
 	   .attr('y',seed.y+ text_seed_y)	   
 	   .style('stroke-width',trunk_text_width)
-	   .style('font-size',trunk_text_size);	
+	   .style('font-size',trunk_text_size)
+	   .style('fill', '#ffffff');	
 }
 function draw_road(multiple, svg){
 /*
@@ -528,8 +530,10 @@ function initTree() {
 		type: "POST",
 		url: ip + "/topic/getCompleteTopicByNameAndDomainNameWithHasFragment",
 		data: $.param({
-			domainName: getCookie("NowClass"),
-			topicName: SUBJECTNAME,
+            // domainName:getCookie("NowClass"),
+            domainName: '企业知识森林',
+            // topicName:SUBJECTNAME,
+            topicName: '企业Q',
 			hasFragment: true
 		}),
 		headers: {
